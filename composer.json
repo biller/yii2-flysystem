@@ -1,6 +1,6 @@
 {
     "name": "biller/yii2-flysystem",
-    "description": "The flysystem 2.0 extension for the Yii framework",
+    "description": "The flysystem 3.0 extension for the Yii framework",
     "keywords": [
         "yii2",
         "flysystem",
@@ -19,10 +19,10 @@
     ],
     "require": {
         "yiisoft/yii2": "^2.0",
-        "league/flysystem": "^2.0"
+        "league/flysystem": "^3.0"
     },
     "require-dev": {
-        "league/flysystem-aws-s3-v3": "^2.0"
+        "league/flysystem-aws-s3-v3": "^3.12"
     },
     "conflict": {
         "league/flysystem-aws-s3-v3": "<1.0.26"

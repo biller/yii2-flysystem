@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.0
+- update dependencies for flysystem 3.0
+
 ## 2.0
 - update dependencies for flysystem 2.0
 
