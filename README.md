@@ -1,9 +1,9 @@
-# Flysystem (2.0) Extension for Yii 2
+# Flysystem (3.0) Extension for Yii 2
 ## Notice: Only adapts AWS S3 and local filesystems.
 
 Based on: https://github.com/creocoder/yii2-flysystem
 
-This extension provides [Flysystem 2.0](http://flysystem.thephpleague.com/) integration for the Yii framework.
+This extension provides [Flysystem 3.0](http://flysystem.thephpleague.com/) integration for the Yii framework.
 [Flysystem](http://flysystem.thephpleague.com/) is a filesystem abstraction which allows you to easily swap out a local filesystem for a remote one.
 
 ## Installation
@@ -13,13 +13,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```bash
-$ composer require biller/yii2-flysystem:^2.0
+$ composer require biller/yii2-flysystem:^3.0
 ```
 
 or add
 
 ```
-"biller/yii2-flysystem": "^2.0"
+"biller/yii2-flysystem": "^3.0"
 ```
 
 to the `require` section of your `composer.json` file.
@@ -48,13 +48,13 @@ return [
 Either run
 
 ```bash
-$ composer require league/flysystem-aws-s3-V3:^2.4
+$ composer require league/flysystem-aws-s3-V3:^3.12
 ```
 
 or add
 
 ```
-"league/flysystem-aws-s3-V3": "^2.4"
+"league/flysystem-aws-s3-V3": "^3.12"
 ```
 
 to the `require` section of your `composer.json` file and configure application `components` as follows
