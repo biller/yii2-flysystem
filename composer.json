@@ -22,7 +22,7 @@
         "league/flysystem": "^3.0"
     },
     "require-dev": {
-        "league/flysystem-aws-s3-v3": "^3.0"
+        "league/flysystem-aws-s3-v3": "^3.12"
     },
     "conflict": {
         "league/flysystem-aws-s3-v3": "<1.0.26"
