@@ -21,31 +21,31 @@ class AwsS3Filesystem extends Filesystem
     /**
      * @var string
      */
-    public $key;
+    public $key = '';
     /**
      * @var string
      */
-    public $secret;
+    public $secret = '';
     /**
      * @var string
      */
-    public $region;
+    public $region = '';
     /**
      * @var string
      */
-    public $baseUrl;
+    public $baseUrl = '';
     /**
      * @var string
      */
-    public $version;
+    public $version = '';
     /**
      * @var string
      */
-    public $bucket;
+    public $bucket = '';
     /**
-     * @var string|null
+     * @var string
      */
-    public $prefix;
+    public $prefix = '';
     /**
      * @var bool
      */
@@ -61,7 +61,7 @@ class AwsS3Filesystem extends Filesystem
     /**
      * @var string
      */
-    public $endpoint;
+    public $endpoint = '';
     /**
      * @var array|\Aws\CacheInterface|\Aws\Credentials\CredentialsInterface|bool|callable
      */
@@ -72,17 +72,17 @@ class AwsS3Filesystem extends Filesystem
      */
     public function init()
     {
-        if ($this->credentials === null) {
-            if ($this->key === null) {
+        if (empty($this->credentials)) {
+            if (empty($this->key)) {
                 throw new InvalidConfigException('The "key" property must be set.');
             }
 
-            if ($this->secret === null) {
+            if (empty($this->secret)) {
                 throw new InvalidConfigException('The "secret" property must be set.');
             }
         }
 
-        if ($this->bucket === null) {
+        if (empty($this->bucket)) {
             throw new InvalidConfigException('The "bucket" property must be set.');
         }
 
@@ -96,7 +96,7 @@ class AwsS3Filesystem extends Filesystem
     {
         $config = [];
 
-        if ($this->credentials === null) {
+        if (empty($this->credentials)) {
             $config['credentials'] = ['key' => $this->key, 'secret' => $this->secret];
         } else {
             $config['credentials'] = $this->credentials;
@@ -107,15 +107,15 @@ class AwsS3Filesystem extends Filesystem
             $config['use_path_style_endpoint'] = true;
         }
 
-        if ($this->region !== null) {
+        if (!empty($this->region)) {
             $config['region'] = $this->region;
         }
 
-        if ($this->baseUrl !== null) {
+        if (!empty($this->baseUrl)) {
             $config['base_url'] = $this->baseUrl;
         }
 
-        if ($this->endpoint !== null) {
+        if (!empty($this->endpoint)) {
             $config['endpoint'] = $this->endpoint;
         }
 
