@@ -48,13 +48,13 @@ return [
 Either run
 
 ```bash
-$ composer require league/flysystem-aws-s3-V3:^3.12
+$ composer require league/flysystem-aws-s3-V3:^3.15
 ```
 
 or add
 
 ```
-"league/flysystem-aws-s3-V3": "^3.12"
+"league/flysystem-aws-s3-V3": "^3.15"
 ```
 
 to the `require` section of your `composer.json` file and configure application `components` as follows
