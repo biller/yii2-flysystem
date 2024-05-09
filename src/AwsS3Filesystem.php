@@ -7,7 +7,10 @@
 
 namespace creocoder\flysystem;
 
+use Aws\CacheInterface;
+use Aws\Credentials\CredentialsInterface;
 use Aws\S3\S3Client;
+use Closure;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 use yii\base\InvalidConfigException;
 
@@ -18,54 +21,19 @@ use yii\base\InvalidConfigException;
  */
 class AwsS3Filesystem extends Filesystem
 {
-    /**
-     * @var string
-     */
-    public $key = '';
-    /**
-     * @var string
-     */
-    public $secret = '';
-    /**
-     * @var string
-     */
-    public $region = '';
-    /**
-     * @var string
-     */
-    public $baseUrl = '';
-    /**
-     * @var string
-     */
-    public $version = '';
-    /**
-     * @var string
-     */
-    public $bucket = '';
-    /**
-     * @var string
-     */
-    public $prefix = '';
-    /**
-     * @var bool
-     */
-    public $pathStyleEndpoint = false;
-    /**
-     * @var array
-     */
-    public $options = [];
-    /**
-     * @var bool
-     */
-    public $streamReads = false;
-    /**
-     * @var string
-     */
-    public $endpoint = '';
-    /**
-     * @var array|\Aws\CacheInterface|\Aws\Credentials\CredentialsInterface|bool|callable
-     */
-    public $credentials;
+    public string $key = '';
+
+    public string $secret = '';
+    public string $region = '';
+    public string $baseUrl = '';
+    public string $version = '';
+    public string $bucket = '';
+    public string $prefix = '';
+    public bool $pathStyleEndpoint = false;
+    public array $options = [];
+    public bool $streamReads = false;
+    public string $endpoint = '';
+    public array|CacheInterface|CredentialsInterface|bool|Closure $credentials;
 
     /**
      * @inheritdoc
@@ -89,10 +57,7 @@ class AwsS3Filesystem extends Filesystem
         parent::init();
     }
 
-    /**
-     * @return AwsS3V3Adapter
-     */
-    protected function prepareAdapter()
+    protected function prepareAdapter(): AwsS3V3Adapter
     {
         $config = [];
 
@@ -101,7 +66,6 @@ class AwsS3Filesystem extends Filesystem
         } else {
             $config['credentials'] = $this->credentials;
         }
-
 
         if ($this->pathStyleEndpoint === true) {
             $config['use_path_style_endpoint'] = true;
