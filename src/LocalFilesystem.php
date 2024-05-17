@@ -18,10 +18,7 @@ use yii\base\InvalidConfigException;
  */
 class LocalFilesystem extends Filesystem
 {
-    /**
-     * @var string
-     */
-    public $path;
+    public string $path;
 
     /**
      * @inheritdoc
@@ -37,10 +34,7 @@ class LocalFilesystem extends Filesystem
         parent::init();
     }
 
-    /**
-     * @return LocalFilesystemAdapter
-     */
-    protected function prepareAdapter()
+    protected function prepareAdapter(): LocalFilesystemAdapter
     {
         return new LocalFilesystemAdapter($this->path);
     }
