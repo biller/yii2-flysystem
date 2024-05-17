@@ -21,9 +21,8 @@ use yii\base\InvalidConfigException;
  */
 class AwsS3Filesystem extends Filesystem
 {
-    public string $key = '';
-
-    public string $secret = '';
+    public ?string $key;
+    public ?string $secret;
     public string $region = '';
     public string $baseUrl = '';
     public string $version = '';
@@ -40,16 +39,6 @@ class AwsS3Filesystem extends Filesystem
      */
     public function init()
     {
-        if (empty($this->credentials)) {
-            if (empty($this->key)) {
-                throw new InvalidConfigException('The "key" property must be set.');
-            }
-
-            if (empty($this->secret)) {
-                throw new InvalidConfigException('The "secret" property must be set.');
-            }
-        }
-
         if (empty($this->bucket)) {
             throw new InvalidConfigException('The "bucket" property must be set.');
         }
@@ -61,10 +50,10 @@ class AwsS3Filesystem extends Filesystem
     {
         $config = [];
 
-        if (empty($this->credentials)) {
-            $config['credentials'] = ['key' => $this->key, 'secret' => $this->secret];
-        } else {
+        if ($this->credentials) {
             $config['credentials'] = $this->credentials;
+        } elseif ($this->key && $this->secret) {
+            $config['credentials'] = ['key' => $this->key, 'secret' => $this->secret];
         }
 
         if ($this->pathStyleEndpoint === true) {
