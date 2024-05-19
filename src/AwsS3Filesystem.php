@@ -21,8 +21,8 @@ use yii\base\InvalidConfigException;
  */
 class AwsS3Filesystem extends Filesystem
 {
-    public ?string $key;
-    public ?string $secret;
+    public ?string $key = null;
+    public ?string $secret = null;
     public string $region = '';
     public string $baseUrl = '';
     public string $version = '';
@@ -32,7 +32,7 @@ class AwsS3Filesystem extends Filesystem
     public array $options = [];
     public bool $streamReads = false;
     public string $endpoint = '';
-    public array|CacheInterface|CredentialsInterface|bool|Closure $credentials;
+    public array|CacheInterface|CredentialsInterface|bool|Closure $credentials = [];
 
     /**
      * @inheritdoc
