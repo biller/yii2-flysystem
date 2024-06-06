@@ -1,5 +1,6 @@
 # Flysystem (3.0) Extension for Yii 2
-## Notice: Only adapts AWS S3 and local filesystems.
+
+## Notice: Only adapts AWS S3, InMemory and local filesystems.
 
 Based on: https://github.com/creocoder/yii2-flysystem
 
